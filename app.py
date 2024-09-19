@@ -1,17 +1,13 @@
 from flask import Flask
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 
-import weather.get_weather
+from web.news_feed_controller import news_bp
+from web.weather_controller import weather_bp
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000", "http://localhost:5173"])
-
-
-@app.route("/api/v1/getCurrentWeather", methods=["GET"])
-def get_current_weather():
-    response = weather.get_weather.get_current_weather()
-    return response
-
+app.register_blueprint(weather_bp)
+app.register_blueprint(news_bp)
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run()

@@ -1,16 +1,14 @@
 import json
 import os
-
 import requests
 from dotenv import load_dotenv
-
 from weather.get_geo import get_geo
 
 load_dotenv()
 
 endpoint = os.getenv("ENDPOINT")
 api = os.getenv("OPENWEATHER_API_KEY")
-print(api)
+# print(api)
 exclude = "minutely,hourly,alerts"
 lat = get_geo()[0]
 lon = get_geo()[1]
