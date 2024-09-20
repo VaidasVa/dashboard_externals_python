@@ -6,7 +6,7 @@ news_bp = Blueprint('news_bp', __name__)
 
 
 @news_bp.route('/api/v1/news', methods=['GET'])
-def getNews():
+def get_news():
     response = getLrtRss.get_news()
     print("News received")
     return response
