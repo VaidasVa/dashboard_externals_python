@@ -8,10 +8,10 @@ load_dotenv()
 
 endpoint = os.getenv("ENDPOINT")
 api = os.getenv("OPENWEATHER_API_KEY")
-# print(api)
 exclude = "minutely,hourly,alerts"
-lat = get_geo()[0]
-lon = get_geo()[1]
+geography = json.loads(get_geo())
+lat = geography["lat"]
+lon = geography["lon"]
 
 
 def get_current_weather():
